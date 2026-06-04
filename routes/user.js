@@ -34,3 +34,7 @@ router.post('/signup', async (req, res) => {
   });
   return res.redirect("/");
 });
+
+router.get('/logout', (req, res) => {
+  res.clearCookie('token').redirect("/");
+});
