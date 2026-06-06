@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
@@ -8,9 +11,9 @@ import { blogRoute } from './routes/blog.js';
 import { Blog } from './models/blog.js';
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT;
 
-mongoose.connect('mongodb://localhost:27017/weblog').then(e => {
+mongoose.connect(process.env.MONGO_URL).then(e => {
   console.log("MongoDB Connected!!!");
 });
 
